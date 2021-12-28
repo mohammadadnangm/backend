@@ -9,6 +9,7 @@ const LoginCheck = require("./LoginCheck");
 const LoginForm = require("./LoginForm");
 const SignupForm = require("./SignupForm");
 const ContactusInfo = require("./ContactusInfo");
+const logout = require("./logout");
 
 // middle wares
 const app = express();
@@ -28,6 +29,12 @@ app.post("/signup", SignupForm);
 
 //contact us form route
 app.post("/contactus", ContactusInfo);
+
+//Logout page  route
+app.get("/logout", (req, res) => {
+  res.clearCookie("quranTutor", { path: "/" });
+  res.status(200).send("user logged");
+});
 
 // listening server port of node and express
 app.listen(5001, () => {
