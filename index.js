@@ -11,7 +11,7 @@ const SignupForm = require("./SignupForm");
 const ContactusInfo = require("./ContactusInfo");
 const logout = require("./logout");
 
-// middle wares
+// middlewares
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -33,7 +33,7 @@ app.post("/contactus", ContactusInfo);
 //Logout page  route
 app.get("/logout", (req, res) => {
   res.clearCookie("quranTutor", { path: "/" });
-  res.status(200).send("user logged");
+  res.status(200).send("user logged out");
 });
 
 // listening server port of node and express
